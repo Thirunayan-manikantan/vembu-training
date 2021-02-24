@@ -37,7 +37,7 @@ void main()
     sockaddr_in hint;
     hint.sin_family = AF_INET;
     hint.sin_port = htons(port);
-    inet_pton(AF_INET, ipaddress.cstr(), &hint.sin_addr);
+    inet_pton(AF_INET, ipaddress.c_str(), &hint.sin_addr);
 
     //connect to server
     int connresult = connect(sock, (sockaddr*)&hint, sizeof(hint));
