@@ -98,9 +98,9 @@ int main()
             }
         }
     }
-    catch (exception e)
+    catch (SocketException& e)
     {
-        cout << e.what();
+        cout << "Exception caught" << e.description();
     }
 
     //cleanup winsock
