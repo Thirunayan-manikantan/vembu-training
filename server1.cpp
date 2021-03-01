@@ -10,7 +10,7 @@ Clistener::~Clistener()
 	cleanup();
 }
 
-//send the msg to the specified client
+//send the msg 
 void Clistener::send(int clientsocket, std::string msg)
 {
 	send(clientsocket, msg.c_str());
