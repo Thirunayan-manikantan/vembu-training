@@ -8,8 +8,8 @@
 class Slistener
 {
 public:
-	slistener(std::string ipaddress, int port, std::string msg);
-	~slistener();
+	Slistener(std::string ipaddress, int port, std::string msg);
+	~Slistener();
 
 	//send the msg to the specified client
 	int send(int clientsocket, std::string msg);
