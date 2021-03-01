@@ -2,16 +2,16 @@
 #include<iostream>
 #include<string>
 
-clistener::clistener(std::string ipaddress, int port, messagereceivedhandler handler) 
+Clistener::Clistener(std::string ipaddress, int port, messagereceivedhandler handler) 
 	: m_ipaddress(ipaddress), m_port(port), messagereceived(handler) {}
 
-clistener::~clistener()
+Clistener::~Clistener()
 {
 	cleanup();
 }
 
 //send the msg to the specified client
-void clistener::send(int clientsocket, std::string msg)
+void Clistener::send(int clientsocket, std::string msg)
 {
 	send(clientsocket, msg.c_str());
 }
@@ -27,7 +27,7 @@ bool clistener::init()
 }
 
 //the main loop
-void clistener::run()
+void Clistener::run()
 {
 	char buf[MAX_BUFFER_SIZE];
 	while (true)
@@ -63,13 +63,13 @@ void clistener::run()
 	}
 }
 
-void clistener::cleanup()
+void Clistener::cleanup()
 {
 	WSACleanup();
 }
 
 //create a socket
-SOCKET clistener::createsocket()
+SOCKET Clistener::createsocket()
 {
 	SOCKET listening = socket(AF_INET, SOCK_STREAM, 0);
 	if (listening != INVALID_SOCKET)
@@ -97,7 +97,7 @@ SOCKET clistener::createsocket()
 }
 
 //wait for connection
-SOCKET clistener::waitforconnection(SOCKET listening)
+SOCKET Clistener::waitforconnection(SOCKET listening)
 {
 	sockaddr_in client;
 	int clientsize = sizeof(client);
