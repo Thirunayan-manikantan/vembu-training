@@ -6,7 +6,7 @@
 #define MAX_BUFFER_SIZE (50000)
 
 //forward dec of class
-class slistener;
+class Slistener;
 
 //callback to receive data
 typedef void(*messagereceivedhandler)(slistener* listener, int socketid, std::string msg);
