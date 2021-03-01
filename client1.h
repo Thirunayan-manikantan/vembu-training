@@ -9,13 +9,13 @@
 class Slistener;
 
 //callback to receive data
-typedef void(*messagereceivedhandler)(slistener* listener, int socketid, std::string msg);
+typedef void(*messagereceivedhandler)(Slistener* listener, int socketid, std::string msg);
 
 class Slistener
 {
 public:
-	slistener(std::string ipaddress, int port, messagereceivedhandler handler);
-	~slistener();
+	Slistener(std::string ipaddress, int port, messagereceivedhandler handler);
+	~Slistener();
 
 	//send the msg to the specified client
 	void send(int clientsocket, std::string msg);
