@@ -11,7 +11,7 @@ class slistener;
 //callback to receive data
 typedef void(*messagereceivedhandler)(slistener* listener, int socketid, std::string msg);
 
-class slistener
+class Slistener
 {
 public:
 	slistener(std::string ipaddress, int port, messagereceivedhandler handler);
