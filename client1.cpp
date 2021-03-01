@@ -3,22 +3,22 @@
 
 #include "client1.h"
 
-slistener::slistener(std::string ipaddress, int port, messagereceivedhandler handler)
+Slistener::Slistener(std::string ipaddress, int port, messagereceivedhandler handler)
 	: m_ipaddress(ipaddress), m_port(port), messagereceived(handler) {}
 
-slistener::~slistener()
+Slistener::~Slistener()
 {
 	cleanup();
 }
 
 //send the msg to the specified client
-void slistener::send(int clientsocket, std::string msg)
+void Slistener::send(int clientsocket, std::string msg)
 {
 	send(clientsocket, msg.c_str());
 }
 
 //initialize win sock
-bool slistener::init()
+bool Slistener::init()
 {
 	WSAData data;
 	WORD ver = MAKEWORD(2, 2);
@@ -28,7 +28,7 @@ bool slistener::init()
 }
 
 //the main loop
-void slistener::run()
+void Slistener::run()
 {
 	char buf[MAX_BUFFER_SIZE];
 	while (true)
@@ -67,13 +67,13 @@ void slistener::run()
 	}
 } 
 
-void slistener::cleanup()
+void Slistener::cleanup()
 {
 	WSACleanup();
 }
 
 //create a socket
-SOCKET slistener::createsocket()
+SOCKET Slistener::createsocket()
 {
 	SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
 	if (sock != INVALID_SOCKET)
@@ -101,7 +101,7 @@ SOCKET slistener::createsocket()
 }
 
 //connect to server
-SOCKET slistener::connecttoserver()
+SOCKET Slistener::connecttoserver()
 {
 	SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
 	sockaddr_in hint;
