@@ -43,6 +43,5 @@ void listener_messagereceived(Clistener* listener, int server, string msg)
 }
 void listener_messagereceived1(Slistener* listener, int client, string msg)
 {
-	getline(cin, msg);
 	listener->send(client, msg);
 }
