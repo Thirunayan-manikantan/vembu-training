@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void listener_messagereceived(clistener* listener, int server, string msg);
+void listener_messagereceived(Clistener* listener, int server, string msg);
 
 void main()
 {
@@ -18,7 +18,7 @@ void main()
 	{
 		string ip = "127.0.0.1";
 		int portnum = 54000;
-		clistener server(ip, portnum, listener_messagereceived);
+		Clistener server(ip, portnum, listener_messagereceived);
 		if (server.init())
 		{
 			server.run();
@@ -31,14 +31,14 @@ void main()
 		int portnum = 54000;
 		cout << "> ";
 		getline(cin, userinput);
-		slistener client(ip, portnum, userinput);
+		Slistener client(ip, portnum, userinput);
 		if (client.init())
 		{
 			client.run();
 		}
 	}
 }
-void listener_messagereceived(clistener* listener, int server, string msg)
+void listener_messagereceived(Clistener* listener, int server, string msg)
 {
 	listener->send(server, msg);
 }
