@@ -17,7 +17,7 @@ public:
 	Slistener(std::string ipaddress, int port, messagereceivedhandler handler);
 	~Slistener();
 
-	//send the msg to the specified client
+	//send the msg
 	void send(int clientsocket, std::string msg);
 
 	//initialize win sock
