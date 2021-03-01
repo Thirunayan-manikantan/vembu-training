@@ -6,16 +6,16 @@
 #define MAX_BUFFER_SIZE (50000)
 
 //forward dec of class
-class clistener;
+class Clistener;
 
 //callback to receive data
-typedef void(*messagereceivedhandler)(clistener* listener, int socketid, std::string msg);
+typedef void(*messagereceivedhandler)(Clistener* listener, int socketid, std::string msg);
 
 class clistener
 {
 public:
-	clistener(std::string ipaddress, int port, messagereceivedhandler handler);
-	~clistener();
+	Clistener(std::string ipaddress, int port, messagereceivedhandler handler);
+	~Clistener();
 
 	//send the msg to the specified client
 	void send(int clientsocket, std::string msg);
