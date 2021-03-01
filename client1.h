@@ -5,7 +5,7 @@
 #pragma comment(lib, "ws2_32.lib")  //winsock library file
 #define MAX_BUFFER_SIZE (50000)
 
-class slistener
+class Slistener
 {
 public:
 	slistener(std::string ipaddress, int port, std::string msg);
